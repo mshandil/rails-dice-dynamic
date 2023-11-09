@@ -48,13 +48,14 @@ class ZebraController < ApplicationController
   end
 
   def random
+    @num1 = params.fetch("n1").to_i
+    @num2 = params.fetch("n2").to_i
+
     @rolls = []
-   
-    @num1.times do
+       @num1.times do
       die = rand(1..@num2)
       @rolls.push(die)
     end
-
     render template: "dice_template/random"
   end
 end
